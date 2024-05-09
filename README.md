@@ -2,7 +2,7 @@
 
 ## Aim :
 
-To develop a animal feeding game-Phase-1 using unity.
+To develop a animal feeding game-Phase-2 using unity.
 
 ## Algorithm :
 
@@ -10,15 +10,15 @@ To develop a animal feeding game-Phase-1 using unity.
 
 ### Step 1 :
 
-Extract the package and in unity , asserts -> Import packages -> Custom packages and select the package. When we go to Assets folders we can see the course library which we extracted
+Extract the package and in unity , asserts -> Import packages -> Custom packages and select the package. When we go to Assets folders we can see the course library which we extracted.
 
 ### Step 2 :
 
-If you want, drag a different material from Course Library > Materials onto the Ground object
+If you want, drag a different material from Course Library > Materials onto the Ground object.
 
 ### Step 3 :
 
-Drag 1 Human, 3 Animals, and 1 Food object into the Hierarchy
+Drag 1 Human, 3 Animals, and 1 Food object into the Hierarchy.
 
 ### Step 4 :
 
@@ -26,7 +26,7 @@ Rename the character “Player”, then reposition the animals and food so you c
 
 ### Step 5 :
 
-Adjust the XYZ scale of the food (2,2,2) so you can easily see it from above
+Adjust the XYZ scale of the food (2,2,2) so you can easily see it from above.
 
 ### Step 6 :
 
@@ -60,8 +60,8 @@ Edit their speed values and test to see how it looks. Drag all three animals int
 
 ## PROGRAM :
 
-## DEVELOPED BY : ABRIN NISHA A
-## REG NO : 212222230005
+### DEVELOPED BY : ABRIN NISHA A
+### REG NO : 212222230005
 
 ## PLAYER CONTROL :
 
@@ -137,4 +137,4 @@ public class MoveForward : MonoBehaviour
 
 ## RESULT :
 
-Animal feeding game-Phase-1 using unity is developed successfully.
+Animal feeding game-Phase-2 using unity is developed successfully.
