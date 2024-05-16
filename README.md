@@ -63,19 +63,52 @@ Edit their speed values and test to see how it looks. Drag all three animals int
 ### DEVELOPED BY : ABRIN NISHA A
 ### REG NO : 212222230005
 
-## PLAYER CONTROL :
+## SPAWN MANAGER :
 
 ```
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
-    public float horizontalInput;
-    public float speed = 10.0f;
-    public float xRange = 10f;
-    public GameObject projectilePrefab;
+    public GameObject[] animalPrefabs;
+    private float spawnRangeX = 1;
+    private float spawnPosZ = 1;
+    private float startDelay = 2f;
+    private float spawnInterval = 1.5f;
+
+    void Start()
+    {
+        InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void SpawnRandomAnimal()
+    {
+        int animalIndex = Random.Range(0, animalPrefabs.Length);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+        Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
+    }
+}
+
+       
+```
+
+## DETECT COLLIDER :
+
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DetectCollider : MonoBehaviour
+{
     // Start is called before the first frame update
     void Start()
     {
@@ -85,50 +118,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < -xRange)
-        {
-            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
-        }
-        if (transform.position.x > xRange)
-        {
-            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
-        }
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-        }
-
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(other);
+        Destroy(other.gameObject);
     }
 }
 
-```
-
-## MOVING FORWARD :
-
-```
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MoveForward : MonoBehaviour
-{
-    public float speed = 40.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
-
-    }
-}
 
 ```
 ## OUTPUT :
